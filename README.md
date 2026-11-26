@@ -9,7 +9,7 @@ assets/js/data.js          ← ALL editable content lives here
 assets/js/main.js          gallery, filters, lazy-load, autoplay, lightbox, form
 assets/videos/             put the 7 MP4s here (exact filenames below)
 assets/posters/            thumbnails, generated from the videos
-assets/img/                og-image.jpg (social share) + about portrait placeholder
+assets/img/                og-image.png (social share) + about-portrait.svg
 scripts/generate-posters.sh   extracts a first-frame poster for each video
 ```
 
@@ -51,7 +51,7 @@ Everything is in **`assets/js/data.js`**:
 - `services[]` — the three service cards
 - `contact` — email, social URLs, and optional `formEndpoint`
 
-Placeholders to replace: bio, `assets/img/about-portrait.jpg`, and the video titles. The “Photo placeholder” caption is in `index.html`. Contact details are already filled in — `fawas5654@gmail.com` and WhatsApp `0802 400 3609` (`https://wa.me/2348024003609`); Instagram / YouTube / TikTok links were removed.
+Placeholders to replace: bio, `assets/img/about-portrait.svg`, and the video titles. The “Photo placeholder” caption is in `index.html`. Contact details are already filled in — `fawas5654@gmail.com` and WhatsApp `0802 400 3609` (`https://wa.me/2348024003609`); Instagram / YouTube / TikTok links were removed.
 
 **Contact form:** it validates, then opens the visitor's email app with the message prefilled and addressed to `contact.email`. To collect messages in a form service instead, set `contact.formEndpoint` (Formspree, Netlify Forms, or your own endpoint) — the form then `POST`s `{ name, email, message }` as JSON and stops using the mail app.
 
@@ -75,7 +75,7 @@ To publish a change: edit a file, commit and push to `main`. Pages rebuilds in a
 1. Open the repo → `assets/videos` → **Add file → Upload files**.
 2. Drop the MP4s in, keeping the exact filenames from the table above, then **Commit changes**.
 3. GitHub's web uploader accepts files up to 25 MB each and rejects anything over 100 MB. For bigger clips use [GitHub Desktop](https://desktop.github.com) or a normal `git push`.
-4. Thumbnails: run `./scripts/generate-posters.sh` locally (needs ffmpeg) and upload `assets/posters/*.jpg` the same way, or just upload the videos — the first frame is used as a fallback poster.
+4. Thumbnails: run `./scripts/generate-posters.sh` locally (needs ffmpeg) and upload `assets/posters/*.jpg` the same way, or just upload the videos — the browser shows a black frame until a poster is added.
 
 The Open Graph URLs in `index.html` already point at the live Pages domain, so social previews resolve.
 
